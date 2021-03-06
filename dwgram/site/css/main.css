@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons&display=swap');
+html,
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.mdc-typography,
+.mdc-typography--button,
+.mdc-button {
+    font-family: 'Lato', sans-serif !important;
+}
+
+a:not(.mdc-button) {
+    text-decoration: none;
+    color: #2e86de;
+}
+
+a:not(.mdc-button):hover {
+    text-decoration: underline;
+}
+
+main {
+    overflow-y: auto;
+}
+
+:root {
+    --mdc-theme-primary: #5f27cd;
+    --mdc-theme-secondary: #341f97;
+    --mdc-typography-font-family: 'Lato', sans-serif !important;
+}

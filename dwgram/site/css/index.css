@@ -1,0 +1,61 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.dwgram--header {
+    min-height: calc(100vh - 67px);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mdc-theme-secondary);
+}
+
+.dwgram--header__container {
+    color: #fff;
+    text-align: center;
+    max-width: 80%;
+}
+
+.dwgram__title {
+    font-size: 4em;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 15px;
+}
+
+.dwgram__subtitle {
+    font-size: 1.2em;
+    display: block;
+}
+
+.dwgram--header__buttons-container {
+    display: block;
+    margin-top: 30px;
+}
+
+.dwgram--header__button {
+    --mdc-theme-primary: #fff;
+}
+
+.dwgram__report-an-abuse {
+    text-align: center;
+    padding: 24px 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .25);
+}
+
+.dwgram__report-an-abuse a {
+    text-decoration: none;
+    color: #2e86de;
+}
+
+.dwgram--footer {
+    position: relative;
+    background-color: var(--mdc-theme-secondary);
+    color: #fff;
+    width: 100vw;
+    height: 67px;
+}

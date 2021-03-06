@@ -1,0 +1,8 @@
+table.dwgram-documentation__table {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
+
+div.dwgram-documentation__table--container {
+    width: 100%;
+}

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWGram</title>
+    <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #181a1b !important;
+            color: #e8e6e3;
+        }
+        .mdc-data-table__header-cell {
+            background-color:  #181a1b !important;
+            color: #ffffff !important;
+        }
+        .mdc-data-table__cell {
+            background-color:  #181a1b !important;
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mdc-drawer-app-content">
+        <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+            <div class="mdc-top-app-bar__row">
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                    <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+                    <span class="mdc-top-app-bar__title">DWGram Documentation</span>
+                </section>
+            </div>
+        </header>
+    </div>
+    <aside class="mdc-drawer mdc-drawer--modal">
+        <div class="mdc-drawer__content">
+            <div class="mdc-list">
+                <h6 class="mdc-list-group__subheader">Custom links</h6>
+                <a class="mdc-list-item" href="#s" tabindex="1">
+                    <span class="mdc-list-item__text">dwgram.xyz/s/</span>
+                </a>
+                <hr class="mdc-list-divider">
+                <h6 class="mdc-list-group__subheader">Methods</h6>
+                <a class="mdc-list-item" href="#getchat" tabindex="1">
+                    <span class="mdc-list-item__text">getchat</span>
+                </a>
+                <hr class="mdc-list-divider">
+                <h6 class="mdc-list-group__subheader">Types</h6>
+                <a class="mdc-list-item" href="#messages" tabindex="1">
+                    <span class="mdc-list-item__text">Messages</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+    <div class="mdc-drawer-scrim"></div>
+    <main class="mdc-top-app-bar--fixed-adjust">
+        <div class="mdc-layout-grid mdc-typography">
+            <h1>Welcome to DWGram's documentation!</h1>
+            <h3>For every method, you must use <code>SECRET_SITEURL/api/</code> as endpoint, every API request should be passed by GET (application/x-www-form-urlencoded format in query string) or POST (JSON or application/x-www-form-urlencoded POST body).</h3>
+	    <h4>Note: the API will always pass the access-control-allow-origin:"*" header to provide no CORS limitation on your web projects. If you need support you can contact me on <a href="https://t.me/shishcat2">@shishcat2</a> .</h4>
+	    <h1 id="customlinks">Custom Links</h1>
+            <div id="s">
+                <h2>SECRET_SITEURL/s/</h2>
+                <p>With this link, you can get files without using getchat.</p>
+		<p>If media is not present, it will show the text instead.</p>
+		<p>We wouldn't store any file access information using this method, but of course who recieves this link can get the joinhash/username very easily.</p>
+                <h3>Parameters:</h3>
+                <div class="mdc-data-table mdc-typography dwgram-documentation__table--container">
+                    <table class="mdc-data-table__table dwgram-documentation__table mdc-typography">
+                        <thead>
+                            <tr class="mdc-data-table__header-row">
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">N°</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Accepts</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Description</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Required?</th>
+                            </tr>
+                        </thead>
+                        <tbody class="mdc-data-table__content">
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">1</td>
+                                <td class="mdc-data-table__cell">string</td>
+                                <td class="mdc-data-table__cell">@username or joinchat fragment.</td>
+                                <td class="mdc-data-table__cell">True</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">2</td>
+                                <td class="mdc-data-table__cell">string or integer</td>
+                                <td class="mdc-data-table__cell">message id.</td>
+                                <td class="mdc-data-table__cell">True</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>For example: <a href="SECRET_SITEURL/s/@shishcatpublic/2">SECRET_SITEURL/s/@shishcatpublic/2</a></p>
+                <p>In addition, you can pass ?text=true to get message text instead of the media.</p>
+            </div>
+            <h1 id="methods">Methods</h1>
+            <div id="getchat">
+                <h2>SECRET_SITEURL/api/getchat</h2>
+                <p>With this method, you can fetch any group or channel's messages, and for media files, you can get their download link <code>SECRET_SITEURL/media/ID</code></p>
+                <h3 class="mdc-typography">Parameters:</h3>
+                <div class="mdc-data-table mdc-typography dwgram-documentation__table--container">
+                    <table class="mdc-data-table__table dwgram-documentation__table mdc-typography">
+                        <thead>
+                            <tr class="mdc-data-table__header-row">
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Parameter</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Accepts</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Description</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Required?</th>
+                            </tr>
+                        </thead>
+                        <tbody class="mdc-data-table__content">
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">joinchat</td>
+                                <td class="mdc-data-table__cell">string</td>
+                                <td class="mdc-data-table__cell">You should use this only for PRIVATE groups/channels, you have to pass here the joinchat fragment (the part after https://t.me/joinchat/)</td>
+                                <td class="mdc-data-table__cell">Only if username's not present</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">username</td>
+                                <td class="mdc-data-table__cell">string</td>
+                                <td class="mdc-data-table__cell">You should use this for public groups/channels, you have to pass here the username without the @ sign</td>
+                                <td class="mdc-data-table__cell">Only if joinchat's not present</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">skip</td>
+                                <td class="mdc-data-table__cell">integer</td>
+                                <td class="mdc-data-table__cell">By default, DWGram fetches the last 100 messages only. With this, you can skip messages, and fetch another 100s (is used like in Telegram's add_offset)</td>
+                                <td class="mdc-data-table__cell">False</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">offset</td>
+                                <td class="mdc-data-table__cell">integer</td>
+                                <td class="mdc-data-table__cell">It's used like in Telegram's offset, combined with "skip", you can skip specific messages.</td>
+                                <td class="mdc-data-table__cell">False</td>
+                            </tr>
+			                <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">s</td>
+                                <td class="mdc-data-table__cell">boolean</td>
+                                <td class="mdc-data-table__cell">If you pass this parameter, no file access data will be stored and no <code>mediaURL</code> will be returned.</td>
+                                <td class="mdc-data-table__cell">False</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">__cachebypass</td>
+                                <td class="mdc-data-table__cell">boolean</td>
+                                <td class="mdc-data-table__cell">If you pass this parameter, our system will try to ignore our cache (15 minutes) and fetch the resource again. Your IP will be logged, and you can do up to a request every 30 seconds with this, then a cached version will be returned. If you need a pass(free, you just have to prove your good faith), contact me here <a href="https://t.me/shishcat2">@shishcat2</a></td>
+                                <td class="mdc-data-table__cell">False</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">dwpagesparse</td>
+                                <td class="mdc-data-table__cell">boolean</td>
+                                <td class="mdc-data-table__cell">If you pass this parameter, our system will return in the message field instead of an Array of <a href="#messages">Messages</a>, an Object of <a href="#files">Files</a>. This was originally made specifically for <a href="https://https://github.com/shishcat/dwpages">https://github.com/shishcat/dwpages</a></td>
+                                <td class="mdc-data-table__cell">False</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+		<p>For example (if you are using query string format): <a href="SECRET_SITEURL/api/getchat?username=shishcatpublic">SECRET_SITEURL/api/getchat?username=shishcatpublic</a> or <a href="SECRET_SITEURL/api/getchat?joinchat=2iK_4IoqmVk0ZWI0">SECRET_SITEURL/api/getchat?joinchat=2iK_4IoqmVk0ZWI0</a></p>
+                <h3 class="mdc-typography">Returns:</h3>
+                <div class="mdc-data-table mdc-typography dwgram-documentation__table--container">
+                    <table class="mdc-data-table__table dwgram-documentation__table mdc-typography">
+                        <thead>
+                            <tr class="mdc-data-table__header-row">
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Parameter</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Value</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="mdc-data-table__content">
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">ok</td>
+                                <td class="mdc-data-table__cell">boolean</td>
+                                <td class="mdc-data-table__cell">Whether the request succeeds.</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">messages</td>
+                                <td class="mdc-data-table__cell">Array of <a href="#messages">Messages</a></td>
+                                <td class="mdc-data-table__cell">The fetched message(s).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="stats">
+                <h2>SECRET_SITEURL/api/stats</h2>
+                <p>Generic informations.</p>
+                <h3 class="mdc-typography">Parameters:</h3>
+                <div class="mdc-data-table mdc-typography dwgram-documentation__table--container">
+                    <table class="mdc-data-table__table dwgram-documentation__table mdc-typography">
+                        <thead>
+                            <tr class="mdc-data-table__header-row">
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Parameter</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Accepts</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Description</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Required?</th>
+                            </tr>
+                        </thead>
+                        <tbody class="mdc-data-table__content">
+                        </tbody>
+                    </table>
+                </div>
+                <h3 class="mdc-typography">Returns:</h3>
+                <div class="mdc-data-table mdc-typography dwgram-documentation__table--container">
+                    <table class="mdc-data-table__table dwgram-documentation__table mdc-typography">
+                        <thead>
+                            <tr class="mdc-data-table__header-row">
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Parameter</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Value</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="mdc-data-table__content">
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">API_online</td>
+                                <td class="mdc-data-table__cell">boolean</td>
+                                <td class="mdc-data-table__cell">Whether the API is online.</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">your_ip</td>
+                                <td class="mdc-data-table__cell">string</td>
+                                <td class="mdc-data-table__cell">The visitor IP.</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">media_dwgrammed_counter</td>
+                                <td class="mdc-data-table__cell">int</td>
+                                <td class="mdc-data-table__cell">How many /media/ urls are in our system</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">visitor_number</td>
+                                <td class="mdc-data-table__cell">int</td>
+                                <td class="mdc-data-table__cell">Number of request that got served by the API server after the last reboot.</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">last_reboot_API_server</td>
+                                <td class="mdc-data-table__cell">int</td>
+                                <td class="mdc-data-table__cell">JS-like date int that indicates when was the last API server restart.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h1 id="types">Types</h1>
+            <div id="messages">
+                <h2>Messages</h2>
+                <p>Returned by getchat.</p>
+                <div class="mdc-data-table mdc-typography dwgram-documentation__table--container">
+                    <table class="mdc-data-table__table dwgram-documentation__table mdc-typography">
+                        <thead>
+                            <tr class="mdc-data-table__header-row">
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Parameter</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Value</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Description</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Mandatory?</th>
+                            </tr>
+                        </thead>
+                        <tbody class="mdc-data-table__content">
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">id</td>
+                                <td class="mdc-data-table__cell">integer</td>
+                                <td class="mdc-data-table__cell">The message ID</td>
+                                <td class="mdc-data-table__cell">True</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">message</td>
+                                <td class="mdc-data-table__cell">string</td>
+                                <td class="mdc-data-table__cell">The text of the message (in case of a media, the media's caption)</td>
+                                <td class="mdc-data-table__cell">True</td>
+                            </tr>
+			                <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">has_media</td>
+                                <td class="mdc-data-table__cell">string</td>
+                                <td class="mdc-data-table__cell">Whether the message's a media</td>
+                                <td class="mdc-data-table__cell">True</td>
+                            </tr>
+			                <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">s_url</td>
+                                <td class="mdc-data-table__cell">string url</td>
+                                <td class="mdc-data-table__cell">If the message is a media it's the message media Custom Link. Else it's the message text Custom Link</td>
+                                <td class="mdc-data-table__cell">True</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">mediaURL</td>
+                                <td class="mdc-data-table__cell">string url</td>
+                                <td class="mdc-data-table__cell">The media URL, it's a short /media/dwid link</td>
+                                <td class="mdc-data-table__cell">Only if the message's a media</td>
+                            </tr>
+			                <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">sm_url</td>
+                                <td class="mdc-data-table__cell">string url</td>
+                                <td class="mdc-data-table__cell">The media's caption Custom Link.</td>
+                                <td class="mdc-data-table__cell">Only if the message's a media</td>
+                            </tr>					
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">type</td>
+                                <td class="mdc-data-table__cell">string</td>
+                                <td class="mdc-data-table__cell">The internal media's type (document, photo), can be returned document for video and sticker</td>
+                                <td class="mdc-data-table__cell">Only if the message's a media</td>
+                            </tr>
+			                <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">fname</td>
+                                <td class="mdc-data-table__cell">string</td>
+                                <td class="mdc-data-table__cell">The document's file name</td>
+                                <td class="mdc-data-table__cell">Only if the message is a document (not type="document")</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            <div id="files">
+                <h2>Files</h2>
+                <p>Returned by getchat using dwpagesparse option. NOTE: it's an object, "key" means the object's key, and "value" means the object's value.</p>
+                <div class="mdc-data-table mdc-typography dwgram-documentation__table--container">
+                    <table class="mdc-data-table__table dwgram-documentation__table mdc-typography">
+                        <thead>
+                            <tr class="mdc-data-table__header-row">
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Parameter</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Value</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Description</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Mandatory?</th>
+                            </tr>
+                        </thead>
+                        <tbody class="mdc-data-table__content">
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">key</td>
+                                <td class="mdc-data-table__cell">string</td>
+                                <td class="mdc-data-table__cell">The media filename</td>
+                                <td class="mdc-data-table__cell">True</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">value</td>
+                                <td class="mdc-data-table__cell">string url</td>
+                                <td class="mdc-data-table__cell">The media Custom Link</td>
+                                <td class="mdc-data-table__cell">True</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h1>Responses/Errors</h1>
+            <div id="errors">
+                <div class="mdc-data-table mdc-typography dwgram-documentation__table--container">
+                    <table class="mdc-data-table__table dwgram-documentation__table mdc-typography">
+                        <thead>
+                            <tr class="mdc-data-table__header-row">
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Status code</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Description</th>
+                                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Other info</th>
+                            </tr>
+                        </thead>
+                        <tbody class="mdc-data-table__content">
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">200</td>
+                                <td class="mdc-data-table__cell">Successful request</td>
+                                <td class="mdc-data-table__cell">The request is successful. </td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">503</td>
+                                <td class="mdc-data-table__cell">DWgram API server down</td>
+                                <td class="mdc-data-table__cell">The DWgram API server is down, it happens mostly because maintenance is in progress.</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">502</td>
+                                <td class="mdc-data-table__cell">DWgram cache server down</td>
+                                <td class="mdc-data-table__cell">The DWgram cache server is down, it happens mostly because maintenance is in progress.</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">521</td>
+                                <td class="mdc-data-table__cell">DWgram server down</td>
+                                <td class="mdc-data-table__cell">The DWgram cache server is down, it happens mostly because maintenance is in progress.</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">500</td>
+                                <td class="mdc-data-table__cell">Server-side error</td>
+                                <td class="mdc-data-table__cell">A generic error happened when processing your request.<br> Please contact <a href="https://t.me/shishcat2">@shishcat2</a> on telegram for helping us fix this issue.</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">400</td>
+                                <td class="mdc-data-table__cell">Wrong request</td>
+                                <td class="mdc-data-table__cell">Check the field "message" for details.</td>
+                            </tr>
+                            <tr class="mdc-data-table__row">
+                                <td class="mdc-data-table__cell">404</td>
+                                <td class="mdc-data-table__cell">Not found</td>
+                                <td class="mdc-data-table__cell">Data requested wasn't available for DWGram API to get it.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script defer src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+    <script defer src="../js/tos.js"></script>
+    <script defer src="js/index.js"></script>
+</body>
+
+</html>
