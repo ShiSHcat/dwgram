@@ -10,7 +10,7 @@ I made this project to get experience with the [Amp Framework](https://github.co
 The idea of this project is to provide an easy to use API to get media and messages from Telegram channels (both private and public) and public groups.\
 The code is very messy and full of bugs, I'd advice a rewrite.\
 This is one of my first projects made during Italy quarantine: march 2020 - may 2020. After this project i started working on [ShiSHtransfer](https://github.com/shishcat/shishtransfer)
-
+### This project is dead. The code of it is bad, wasteful of resources and probably broken. I made this project only to learn.
 ### ⚠️ Neither me or Pato05 assume any responsability. The software in this repository is provided without any warranty. If you decide to run this, you fully understand what it does and everything caused by it is completely your fault.
 
 ## Requirements
